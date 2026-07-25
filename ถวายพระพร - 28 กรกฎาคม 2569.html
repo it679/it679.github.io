@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -25,30 +26,37 @@
         }
     </script>
     <style>
-        body { font-family: 'Kanit', sans-serif; }
+        body {
+            font-family: 'Kanit', sans-serif;
+        }
+
         .glass-card {
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
+
         .glass-input {
             background: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(203, 213, 225, 0.9);
         }
+
         .glass-input:focus {
             background: rgba(255, 255, 255, 1);
         }
+
         .glass-item {
             background: rgba(255, 255, 255, 0.75);
             border: 1px solid rgba(255, 255, 255, 0.9);
         }
     </style>
 </head>
+
 <body class="bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 min-h-screen text-slate-800 py-6 px-3">
 
     <div class="max-w-xl mx-auto glass-card rounded-2xl shadow-xl overflow-hidden">
-        
+
         <!-- Header Section -->
         <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-6 text-center text-white relative">
             <div class="absolute top-0 left-0 right-0 h-1.5 bg-amber-300"></div>
@@ -63,7 +71,8 @@
         <div class="p-5 md:p-8">
             <!-- ภาพประกอบ -->
             <div class="rounded-xl overflow-hidden shadow-md mb-6 border border-white/50 bg-white/30">
-                <img src="https://dkttc.ac.th/wp-content/uploads/2026/07/ร-10-1.png" alt="ทรงพระเจริญ" class="w-full h-auto object-cover" />
+                <img src="https://dkttc.ac.th/wp-content/uploads/2026/07/ร-10-1.png" alt="ทรงพระเจริญ"
+                    class="w-full h-auto object-cover" />
             </div>
 
             <!-- ฟอร์มลงนาม -->
@@ -72,34 +81,53 @@
                     <label class="block font-medium text-slate-700 mb-1 text-sm" for="fullName">
                         <i class="bi bi-person-fill text-sky-500 mr-1"></i> ชื่อ - นามสกุล
                     </label>
-                    <input id="fullName" type="text" required placeholder="เช่น นายสมชาย เรียนดี" 
+                    <input id="fullName" type="text" required placeholder="เช่น นายสมชาย เรียนดี"
                         class="w-full glass-input rounded-xl px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
                 </div>
 
-                <div>
-                    <label class="block font-medium text-slate-700 mb-1 text-sm" for="position">
-                        <i class="bi bi-briefcase-fill text-sky-500 mr-1"></i> ตำแหน่ง / แผนกวิชา
-                    </label>
-                    <input id="position" type="text" required placeholder="เช่น นักศึกษา ปวช.1 ช่างยนต์" 
-                        class="w-full glass-input rounded-xl px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
+                <div class="input-group">
+                    <label><i class="bi bi-briefcase-fill" style="color: #0ea5e9;"></i> ตำแหน่ง / แผนกวิชา</label>
+                    <select name="position" required>
+                        <option disabled selected value="">-- กรุณาเลือกตำแหน่ง / แผนกวิชา --</option>
+                        <optgroup label="ประเภทบุคลากร">
+                            <option value="ผู้บริหาร">ผู้บริหาร</option>
+                            <option value="ข้าราชการครู / ครูผู้สอน">ข้าราชการครู / ครูผู้สอน</option>
+                            <option value="เจ้าหน้าที่ / บุคลากรทางการศึกษา">เจ้าหน้าที่ / บุคลากรทางการศึกษา</option>
+                            <option value="บุคลากรทางการศึกษาอื่นๆ">บุคลากรทางการศึกษาอื่นๆ</option>
+                        </optgroup>
+                        <optgroup label="แผนกวิชา">
+                            <option value="การบัญชี">การบัญชี</option>
+                            <option value="ช่างกลโรงงาน">ช่างกลโรงงาน</option>
+                            <option value="ช่างเทคนิคคอมพิวเตอร์">ช่างเทคนิคคอมพิวเตอร์</option>
+                            <option value="ช่างไฟฟ้า">ช่างไฟฟ้า</option>
+                            <option value="ช่างยนต์">ช่างยนต์</option>
+                            <option value="อิเล็กทรอนิกส์">อิเล็กทรอนิกส์</option>
+                        </optgroup>
+                    </select>
                 </div>
 
                 <div>
                     <label class="block font-medium text-slate-700 mb-1 text-sm" for="wishText">
                         <i class="bi bi-chat-heart-fill text-sky-500 mr-1"></i> คำถวายพระพร
                     </label>
-                    <select id="wishText" required 
+                    <select id="wishText" required
                         class="w-full glass-input rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm">
                         <option disabled selected value="">-- เลือกคำถวายพระพร --</option>
                         <option value="ขอพระองค์ทรงพระเจริญยิ่งยืนนาน">1. ขอพระองค์ทรงพระเจริญยิ่งยืนนาน</option>
-                        <option value="ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์">2. ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์</option>
-                        <option value="ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป">3. ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป</option>
-                        <option value="ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข">4. ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข</option>
-                        <option value="ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ">5. ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ</option>
+                        <option value="ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์">2.
+                            ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์</option>
+                        <option
+                            value="ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป">
+                            3. ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย
+                            จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป</option>
+                        <option value="ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข">4.
+                            ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข</option>
+                        <option value="ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ">5.
+                            ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ</option>
                     </select>
                 </div>
 
-                <button id="submitBtn" type="submit" 
+                <button id="submitBtn" type="submit"
                     class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-xl py-3 font-semibold text-base shadow-md shadow-sky-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-2">
                     <i class="bi bi-send-fill"></i> ลงนามถวายพระพร
                 </button>
@@ -112,9 +140,12 @@
                 <h4 class="font-bold text-base mb-3 flex items-center gap-2 text-slate-800">
                     <i class="bi bi-journal-text text-sky-500"></i> รายชื่อผู้ลงนามถวายพระพรล่าสุด
                 </h4>
-                <div id="wishesList" class="bg-white/50 backdrop-blur-md border border-slate-200 rounded-xl p-3 max-h-[350px] overflow-y-auto space-y-2.5">
+                <div id="wishesList"
+                    class="bg-white/50 backdrop-blur-md border border-slate-200 rounded-xl p-3 max-h-[350px] overflow-y-auto space-y-2.5">
                     <div class="text-center text-slate-500 py-6 text-sm">
-                        <div class="inline-block animate-spin rounded-full h-6 w-6 border-3 border-sky-400 border-t-transparent mb-2"></div>
+                        <div
+                            class="inline-block animate-spin rounded-full h-6 w-6 border-3 border-sky-400 border-t-transparent mb-2">
+                        </div>
                         <div>กำลังโหลดข้อมูล...</div>
                     </div>
                 </div>
@@ -126,7 +157,7 @@
     <script>
         const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzctr56KFSRk7i1M3vuzW8lGShilj1Ubc8KTxj3lCjhpvKHrpkpzNW6Ph8QZsserG6TZQ/exec";
 
-        document.getElementById('wishesForm').addEventListener('submit', function(e) {
+        document.getElementById('wishesForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const submitBtn = document.getElementById('submitBtn');
@@ -141,51 +172,51 @@
 
             fetch(WEB_APP_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'text/plain' },
+                headers: {'Content-Type': 'text/plain'},
                 body: JSON.stringify(formData)
             })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === 'success') {
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'ลงนามถวายพระพรสำเร็จ',
+                            text: 'ขอพระองค์ทรงพระเจริญยิ่งยืนนาน',
+                            confirmButtonColor: '#0284c7',
+                            confirmButtonText: 'ตกลง'
+                        });
+                        document.getElementById('wishesForm').reset();
+                        loadWishes();
+                    } else {
+                        throw new Error(data.message || 'เกิดข้อผิดพลาด');
+                    }
+                })
+                .catch(error => {
                     Swal.fire({
                         icon: 'success',
-                        title: 'ลงนามถวายพระพรสำเร็จ',
-                        text: 'ขอพระองค์ทรงพระเจริญยิ่งยืนนาน',
+                        title: 'บันทึกข้อมูลสำเร็จ',
+                        text: 'บันทึกคำถวายพระพรเรียบร้อยแล้วค่ะ',
                         confirmButtonColor: '#0284c7',
                         confirmButtonText: 'ตกลง'
                     });
                     document.getElementById('wishesForm').reset();
                     loadWishes();
-                } else {
-                    throw new Error(data.message || 'เกิดข้อผิดพลาด');
-                }
-            })
-            .catch(error => {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'บันทึกข้อมูลสำเร็จ',
-                    text: 'บันทึกคำถวายพระพรเรียบร้อยแล้วค่ะ',
-                    confirmButtonColor: '#0284c7',
-                    confirmButtonText: 'ตกลง'
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<i class="bi bi-send-fill"></i> ลงนามถวายพระพร`;
                 });
-                document.getElementById('wishesForm').reset();
-                loadWishes();
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = `<i class="bi bi-send-fill"></i> ลงนามถวายพระพร`;
-            });
         });
 
         function loadWishes() {
             fetch(WEB_APP_URL)
-            .then(response => response.json())
-            .then(data => {
-                const listContainer = document.getElementById('wishesList');
-                if(data && data.length > 0) {
-                    let html = '';
-                    data.reverse().forEach(item => {
-                        html += `
+                .then(response => response.json())
+                .then(data => {
+                    const listContainer = document.getElementById('wishesList');
+                    if (data && data.length > 0) {
+                        let html = '';
+                        data.reverse().forEach(item => {
+                            html += `
                             <div class="glass-item rounded-lg p-3 shadow-sm text-sm">
                                 <div class="flex justify-between items-center gap-1 mb-1">
                                     <strong class="text-sky-800 font-semibold flex items-center gap-1">
@@ -199,28 +230,29 @@
                                 </p>
                             </div>
                         `;
-                    });
-                    listContainer.innerHTML = html;
-                } else {
-                    listContainer.innerHTML = `
+                        });
+                        listContainer.innerHTML = html;
+                    } else {
+                        listContainer.innerHTML = `
                         <div class="text-center text-slate-500 py-6 text-xs">
                             <i class="bi bi-chat-square-text text-2xl mb-1 block text-sky-400"></i>
                             ยังไม่มีรายชื่อผู้ลงนาม เป็นคนแรกที่ร่วมลงนามเลย!
                         </div>
                     `;
-                }
-            })
-            .catch(err => {
-                document.getElementById('wishesList').innerHTML = `
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('wishesList').innerHTML = `
                     <div class="text-center text-slate-500 py-4 text-xs bg-white/60 rounded-lg p-3 border border-dashed border-slate-300">
                         <i class="bi bi-info-circle text-sky-500 text-xl mb-1 block"></i>
                         ระบบพร้อมรับการลงนามถวายพระพรแล้ว สามารถกรอกข้อมูลส่งได้เลยค่ะ
                     </div>
                 `;
-            });
+                });
         }
 
         window.onload = loadWishes;
     </script>
 </body>
+
 </html>

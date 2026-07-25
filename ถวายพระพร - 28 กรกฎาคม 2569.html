@@ -1,258 +1,122 @@
 <!DOCTYPE html>
-<html lang="th">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบลงนามถวายพระพรออนไลน์ - วิทยาลัยเทคนิคดอกคำใต้</title>
-    <!-- Google Fonts: Kanit -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ลงนามถวายพระพร</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        kanit: ['Kanit', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        body {
-            font-family: 'Kanit', sans-serif;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .glass-input {
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(203, 213, 225, 0.9);
-        }
-
-        .glass-input:focus {
-            background: rgba(255, 255, 255, 1);
-        }
-
-        .glass-item {
-            background: rgba(255, 255, 255, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-        }
+        body { font-family: 'Kanit', sans-serif; background: transparent; margin: 0; padding: 10px; box-sizing: border-box; }
+        .card { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid rgba(255,255,255,0.6); }
+        .header { background: linear-gradient(to right, #0ea5e9, #2563eb); padding: 20px; text-align: center; color: white; position: relative; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background-color: #fde047; }
+        .content { padding: 20px; }
+        .input-group { margin-bottom: 16px; }
+        label { display: block; font-weight: 500; color: #334155; margin-bottom: 6px; font-size: 13px; }
+        input, select { width: 100%; border-radius: 12px; padding: 10px 14px; border: 1px solid #cbd5e1; font-family: 'Kanit', sans-serif; font-size: 14px; box-sizing: border-box; background: white; color: #1e293b; }
+        input:focus, select:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4); }
+        .btn { width: 100%; background: linear-gradient(to right, #0ea5e9, #2563eb); color: white; border-radius: 12px; padding: 12px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Kanit', sans-serif; }
+        .btn:hover { opacity: 0.95; }
+        .list-box { background: rgba(255,255,255,0.7); border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .item { background: white; border-radius: 8px; padding: 10px; font-size: 13px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
+<body>
 
-<body class="bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100 min-h-screen text-slate-800 py-6 px-3">
+<div class="card">
+    <div class="header">
+        <h2 style="font-size: 18px; margin: 0 0 4px 0; font-weight: bold;"><i class="bi bi-heart-fill" style="color: #fde047;"></i> ระบบลงนามถวายพระพรออนไลน์</h2>
+        <p style="font-size: 12px; color: #bae6fd; margin: 0;">วิทยาลัยเทคนิคดอกคำใต้ เนื่องในโอกาสวันเฉลิมพระชนมพรรษา 28 กรกฎาคม 2569</p>
+    </div>
 
-    <div class="max-w-xl mx-auto glass-card rounded-2xl shadow-xl overflow-hidden">
-
-        <!-- Header Section -->
-        <div class="bg-gradient-to-r from-sky-500 to-blue-600 p-6 text-center text-white relative">
-            <div class="absolute top-0 left-0 right-0 h-1.5 bg-amber-300"></div>
-            <h1 class="text-xl md:text-2xl font-bold mb-1 flex items-center justify-center gap-2">
-                <i class="bi bi-heart-fill text-amber-300"></i> ระบบลงนามถวายพระพรออนไลน์
-            </h1>
-            <p class="font-light text-sky-100 text-xs md:text-sm">
-                วิทยาลัยเทคนิคดอกคำใต้ เนื่องในโอกาสวันเฉลิมพระชนมพรรษา 28 กรกฎาคม 2569
-            </p>
+    <div class="content">
+        <div style="border-radius: 12px; overflow: hidden; margin-bottom: 20px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);">
+            <img src="https://dkttc.ac.th/wp-content/uploads/2026/07/ร-10-1.png" alt="ทรงพระเจริญ" style="width: 100%; height: auto; display: block;" />
         </div>
 
-        <div class="p-5 md:p-8">
-            <!-- ภาพประกอบ -->
-            <div class="rounded-xl overflow-hidden shadow-md mb-6 border border-white/50 bg-white/30">
-                <img src="https://dkttc.ac.th/wp-content/uploads/2026/07/ร-10-1.png" alt="ทรงพระเจริญ"
-                    class="w-full h-auto object-cover" />
+        <form id="wishesForm" method="POST">
+            <div class="input-group">
+                <label><i class="bi bi-person-fill" style="color: #0ea5e9;"></i> ชื่อ - นามสกุล</label>
+                <input type="text" name="fullName" required placeholder="เช่น นายสมชาย เรียนดี">
             </div>
 
-            <!-- ฟอร์มลงนาม -->
-            <form id="wishesForm" class="space-y-4">
-                <div>
-                    <label class="block font-medium text-slate-700 mb-1 text-sm" for="fullName">
-                        <i class="bi bi-person-fill text-sky-500 mr-1"></i> ชื่อ - นามสกุล
-                    </label>
-                    <input id="fullName" type="text" required placeholder="เช่น นายสมชาย เรียนดี"
-                        class="w-full glass-input rounded-xl px-4 py-2.5 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm" />
-                </div>
+            <div class="input-group">
+                <label><i class="bi bi-briefcase-fill" style="color: #0ea5e9;"></i> ตำแหน่ง / แผนกวิชา</label>
+                <select name="position" required>
+                    <option disabled selected value="">-- กรุณาเลือกตำแหน่ง --</option>
+                    <optgroup label="บุคลากร">
+                        <option value="ผู้บริหาร">ผู้บริหาร</option>
+                        <option value="ข้าราชการครู / ครูผู้สอน">ข้าราชการครู / ครูผู้สอน</option>
+                        <option value="เจ้าหน้าที่ / บุคลากรทางการศึกษา">เจ้าหน้าที่ / บุคลากรทางการศึกษา</option>
+                        <option value="บุคลากรทางการศึกษาอื่นๆ">บุคลากรทางการศึกษาอื่นๆ</option>
+                    </optgroup>
+                    <optgroup label="นักเรียน">
+                        <option value="การบัญชี">นักเรียนสาขาวิชาการบัญชี</option>
+                        <option value="ช่างกลโรงงาน">นักเรียนสาขาวิชาช่างกลโรงงาน</option>
+                        <option value="ช่างเทคนิคคอมพิวเตอร์">นักเรียนสาขาวิชาช่างเทคนิคคอมพิวเตอร์</option>
+                        <option value="ช่างไฟฟ้า">นักเรียนสาขาวิชาช่างไฟฟ้า</option>
+                        <option value="ช่างยนต์">นักเรียนสาขาวิชาช่างยนต์</option>
+                        <option value="อิเล็กทรอนิกส์">นักเรียนสาขาวิชาอิเล็กทรอนิกส์</option>
+                    </optgroup>
+                </select>
+            </div>
 
-                <div class="input-group">
-                    <label><i class="bi bi-briefcase-fill" style="color: #0ea5e9;"></i> ตำแหน่ง / แผนกวิชา</label>
-                    <select name="position" required>
-                        <option disabled selected value="">-- กรุณาเลือกตำแหน่ง / แผนกวิชา --</option>
-                        <optgroup label="ประเภทบุคลากร">
-                            <option value="ผู้บริหาร">ผู้บริหาร</option>
-                            <option value="ข้าราชการครู / ครูผู้สอน">ข้าราชการครู / ครูผู้สอน</option>
-                            <option value="เจ้าหน้าที่ / บุคลากรทางการศึกษา">เจ้าหน้าที่ / บุคลากรทางการศึกษา</option>
-                            <option value="บุคลากรทางการศึกษาอื่นๆ">บุคลากรทางการศึกษาอื่นๆ</option>
-                        </optgroup>
-                        <optgroup label="แผนกวิชา">
-                            <option value="การบัญชี">การบัญชี</option>
-                            <option value="ช่างกลโรงงาน">ช่างกลโรงงาน</option>
-                            <option value="ช่างเทคนิคคอมพิวเตอร์">ช่างเทคนิคคอมพิวเตอร์</option>
-                            <option value="ช่างไฟฟ้า">ช่างไฟฟ้า</option>
-                            <option value="ช่างยนต์">ช่างยนต์</option>
-                            <option value="อิเล็กทรอนิกส์">อิเล็กทรอนิกส์</option>
-                        </optgroup>
-                    </select>
-                </div>
+            <div class="input-group">
+                <label><i class="bi bi-chat-heart-fill" style="color: #0ea5e9;"></i> คำถวายพระพร</label>
+                <select name="wishText" required>
+                    <option disabled selected value="">-- เลือกคำถวายพระพร --</option>
+                    <option value="ขอพระองค์ทรงพระเจริญยิ่งยืนนาน">1. ขอพระองค์ทรงพระเจริญยิ่งยืนนาน</option>
+                    <option value="ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์">2. ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์</option>
+                    <option value="ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป">3. ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป</option>
+                    <option value="ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข">4. ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข</option>
+                    <option value="ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ">5. ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ</option>
+                </select>
+            </div>
 
-                <div>
-                    <label class="block font-medium text-slate-700 mb-1 text-sm" for="wishText">
-                        <i class="bi bi-chat-heart-fill text-sky-500 mr-1"></i> คำถวายพระพร
-                    </label>
-                    <select id="wishText" required
-                        class="w-full glass-input rounded-xl px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm">
-                        <option disabled selected value="">-- เลือกคำถวายพระพร --</option>
-                        <option value="ขอพระองค์ทรงพระเจริญยิ่งยืนนาน">1. ขอพระองค์ทรงพระเจริญยิ่งยืนนาน</option>
-                        <option value="ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์">2.
-                            ขอพระองค์ทรงมีพระพลานามัยแข็งแรงสมบูรณ์</option>
-                        <option
-                            value="ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป">
-                            3. ขออานุภาพแห่งคุณพระศรีรัตนตรัยและสิ่งศักดิ์สิทธิ์ทั้งหลาย
-                            จงดลบันดาลให้พระองค์ทรงสถิตเป็นมิ่งขวัญของปวงชนชาวไทยตลอดไป</option>
-                        <option value="ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข">4.
-                            ขอพระบารมีแห่งพระองค์ท่าน จงแผ่ไพศาลคุ้มครองประเทศชาติให้ร่มเย็นเป็นสุข</option>
-                        <option value="ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ">5.
-                            ขอพระองค์ทรงพระเกษมสำราญ พระราชหฤทัยชื่นบานในทุกเมื่อ</option>
-                    </select>
-                </div>
+            <button type="submit" class="btn" id="submitBtn"><i class="bi bi-send-fill"></i> ลงนามถวายพระพร</button>
+        </form>
 
-                <button id="submitBtn" type="submit"
-                    class="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-xl py-3 font-semibold text-base shadow-md shadow-sky-500/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2 mt-2">
-                    <i class="bi bi-send-fill"></i> ลงนามถวายพระพร
-                </button>
-            </form>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #cbd5e1;">
 
-            <hr class="my-6 border-t border-slate-200" />
-
-            <!-- ส่วนแสดงผลรายชื่อ -->
-            <div>
-                <h4 class="font-bold text-base mb-3 flex items-center gap-2 text-slate-800">
-                    <i class="bi bi-journal-text text-sky-500"></i> รายชื่อผู้ลงนามถวายพระพรล่าสุด
-                </h4>
-                <div id="wishesList"
-                    class="bg-white/50 backdrop-blur-md border border-slate-200 rounded-xl p-3 max-h-[350px] overflow-y-auto space-y-2.5">
-                    <div class="text-center text-slate-500 py-6 text-sm">
-                        <div
-                            class="inline-block animate-spin rounded-full h-6 w-6 border-3 border-sky-400 border-t-transparent mb-2">
-                        </div>
-                        <div>กำลังโหลดข้อมูล...</div>
-                    </div>
-                </div>
+        <div>
+            <h4 style="font-size: 14px; font-weight: bold; color: #1e293b; margin-bottom: 10px;"><i class="bi bi-journal-text" style="color: #0ea5e9;"></i> รายชื่อผู้ลงนามถวายพระพรล่าสุด</h4>
+            <div class="list-box" id="listContainer">
+                <div style="text-align: center; color: #64748b; padding: 20px; font-size: 13px;">กำลังโหลดข้อมูล...</div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- JavaScript -->
-    <script>
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzctr56KFSRk7i1M3vuzW8lGShilj1Ubc8KTxj3lCjhpvKHrpkpzNW6Ph8QZsserG6TZQ/exec";
-
-        document.getElementById('wishesForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = `<span class="inline-block animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent mr-2"></span> กำลังบันทึกข้อมูล...`;
-
-            const formData = {
-                fullName: document.getElementById('fullName').value,
-                position: document.getElementById('position').value,
-                wishText: document.getElementById('wishText').value
-            };
-
-            fetch(WEB_APP_URL, {
-                method: 'POST',
-                headers: {'Content-Type': 'text/plain'},
-                body: JSON.stringify(formData)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status === 'success') {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'ลงนามถวายพระพรสำเร็จ',
-                            text: 'ขอพระองค์ทรงพระเจริญยิ่งยืนนาน',
-                            confirmButtonColor: '#0284c7',
-                            confirmButtonText: 'ตกลง'
-                        });
-                        document.getElementById('wishesForm').reset();
-                        loadWishes();
-                    } else {
-                        throw new Error(data.message || 'เกิดข้อผิดพลาด');
-                    }
-                })
-                .catch(error => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'บันทึกข้อมูลสำเร็จ',
-                        text: 'บันทึกคำถวายพระพรเรียบร้อยแล้วค่ะ',
-                        confirmButtonColor: '#0284c7',
-                        confirmButtonText: 'ตกลง'
-                    });
-                    document.getElementById('wishesForm').reset();
-                    loadWishes();
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = `<i class="bi bi-send-fill"></i> ลงนามถวายพระพร`;
-                });
-        });
-
-        function loadWishes() {
-            fetch(WEB_APP_URL)
-                .then(response => response.json())
-                .then(data => {
-                    const listContainer = document.getElementById('wishesList');
-                    if (data && data.length > 0) {
-                        let html = '';
-                        data.reverse().forEach(item => {
-                            html += `
-                            <div class="glass-item rounded-lg p-3 shadow-sm text-sm">
-                                <div class="flex justify-between items-center gap-1 mb-1">
-                                    <strong class="text-sky-800 font-semibold flex items-center gap-1">
-                                        <i class="bi bi-person-circle text-sky-500"></i> ${item.fullName || '-'} 
-                                        <span class="text-slate-500 font-normal text-xs">(${item.position || '-'})</span>
-                                    </strong>
-                                    <small class="text-slate-400 text-[11px]">${item.timestamp || ''}</small>
-                                </div>
-                                <p class="text-slate-700 italic pl-2 border-l-2 border-sky-400 bg-sky-50/50 py-1 rounded-r text-xs">
-                                    "${item.wishText || '-'}"
-                                </p>
-                            </div>
-                        `;
-                        });
-                        listContainer.innerHTML = html;
-                    } else {
-                        listContainer.innerHTML = `
-                        <div class="text-center text-slate-500 py-6 text-xs">
-                            <i class="bi bi-chat-square-text text-2xl mb-1 block text-sky-400"></i>
-                            ยังไม่มีรายชื่อผู้ลงนาม เป็นคนแรกที่ร่วมลงนามเลย!
+<script>
+    google.script.run.withSuccessHandler(function(data) {
+        const container = document.getElementById('listContainer');
+        if(data && data.length > 0) {
+            let html = '';
+            data.reverse().forEach(item => {
+                html += `
+                    <div class="item">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                            <strong style="color: #0369a1;"><i class="bi bi-person-circle" style="color: #0ea5e9;"></i> ${item.fullName || '-'} <span style="color: #64748b; font-weight: normal; font-size: 11px;">(${item.position || '-'})</span></strong>
+                            <span style="color: #94a3b8; font-size: 10px;">${item.timestamp || ''}</span>
                         </div>
-                    `;
-                    }
-                })
-                .catch(err => {
-                    document.getElementById('wishesList').innerHTML = `
-                    <div class="text-center text-slate-500 py-4 text-xs bg-white/60 rounded-lg p-3 border border-dashed border-slate-300">
-                        <i class="bi bi-info-circle text-sky-500 text-xl mb-1 block"></i>
-                        ระบบพร้อมรับการลงนามถวายพระพรแล้ว สามารถกรอกข้อมูลส่งได้เลยค่ะ
+                        <p style="color: #334155; font-style: italic; margin: 0; padding-left: 6px; border-left: 2px solid #38bdf8; font-size: 12px;">"${item.wishText || '-'}"</p>
                     </div>
                 `;
-                });
+            });
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = '<div style="text-align: center; color: #64748b; padding: 20px; font-size: 13px;">ยังไม่มีรายชื่อผู้ลงนาม เป็นคนแรกที่ร่วมลงนามเลย!</div>';
         }
+    }).getWishes();
 
-        window.onload = loadWishes;
-    </script>
+    document.getElementById('wishesForm').addEventListener('submit', function() {
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerHTML = `<span style="display:inline-block; width:12px; height:12px; border:2px solid white; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-right:5px;"></span> กำลังบันทึกข้อมูล...`;
+    });
+</script>
 </body>
-
 </html>

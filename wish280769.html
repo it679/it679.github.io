@@ -7,21 +7,122 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        body { font-family: 'Kanit', sans-serif; background: #f3f4f6; margin: 0; padding: 15px; box-sizing: border-box; }
-        .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #e5e7eb; }
-        .header { background: linear-gradient(to right, #0ea5e9, #2563eb); padding: 20px; text-align: center; color: white; position: relative; }
-        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background-color: #fde047; }
-        .content { padding: 20px; }
-        .input-group { margin-bottom: 16px; }
-        label { display: block; font-weight: 500; color: #334155; margin-bottom: 6px; font-size: 13px; }
-        input, select { width: 100%; border-radius: 12px; padding: 10px 14px; border: 1px solid #cbd5e1; font-family: 'Kanit', sans-serif; font-size: 14px; box-sizing: border-box; background: white; color: #1e293b; }
-        input:focus, select:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4); }
-        .btn { width: 100%; background: linear-gradient(to right, #0ea5e9, #2563eb); color: white; border-radius: 12px; padding: 12px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Kanit', sans-serif; }
-        .btn:hover { opacity: 0.95; }
-        .list-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .item { background: white; border-radius: 8px; padding: 10px; font-size: 13px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        @keyframes spin { to { transform: rotate(360deg); } }
+<style>
+        body { 
+            font-family: 'Kanit', sans-serif; 
+            background: #f3f4f6; 
+            margin: 0; 
+            padding: 15px; 
+            box-sizing: border-box; 
+        }
+        .card { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            overflow: hidden; 
+            border: 1px solid #e5e7eb; 
+        }
+        .header { 
+            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%); 
+            padding: 20px; 
+            text-align: center; 
+            color: white; 
+            position: relative; 
+        }
+        .header::before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            height: 6px; 
+            background-color: #fde047; 
+        }
+        .header h2 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        .header p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        .content { 
+            padding: 20px; 
+        }
+        .input-group { 
+            margin-bottom: 16px; 
+        }
+        label { 
+            display: block; 
+            font-weight: 500; 
+            color: #334155; 
+            margin-bottom: 6px; 
+            font-size: 13px; 
+        }
+        input, select { 
+            width: 100%; 
+            border-radius: 12px; 
+            padding: 10px 14px; 
+            border: 1px solid #cbd5e1; 
+            font-family: 'Kanit', sans-serif; 
+            font-size: 14px; 
+            box-sizing: border-box; 
+            background: white; 
+            color: #1e293b; 
+        }
+        input:focus, select:focus { 
+            outline: none; 
+            border-color: #8B0000; 
+            box-shadow: 0 0 0 2px rgba(139, 0, 0, 0.2); 
+        }
+        .btn { 
+            width: 100%; 
+            background: linear-gradient(135deg, #8B0000 0%, #A52A2A 100%); 
+            color: white; 
+            border-radius: 12px; 
+            padding: 12px; 
+            font-weight: 600; 
+            font-size: 15px; 
+            border: none; 
+            cursor: pointer; 
+            box-shadow: 0 4px 6px -1px rgba(139, 0, 0, 0.3); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            font-family: 'Kanit', sans-serif; 
+        }
+        .btn:hover { 
+            opacity: 0.95; 
+        }
+        .list-box { 
+            background: #f8fafc; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 12px; 
+            padding: 12px; 
+            max-height: 200px; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+        .item { 
+            background: white; 
+            border-radius: 8px; 
+            padding: 10px; 
+            font-size: 13px; 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05); 
+        }
+        .banner-img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 <body>
@@ -29,7 +130,7 @@
 <div class="card">
     <div class="header">
         <h2 style="font-size: 18px; margin: 0 0 4px 0; font-weight: bold;">ระบบลงนามถวายพระพรออนไลน์</h2>
-        <p style="font-size: 12px; color: #bae6fd; margin: 0;">วิทยาลัยเทคนิคดอกคำใต้ เนื่องในโอกาสวันเฉลิมพระชนมพรรษา 28 กรกฎาคม 2569</p>
+        <p style="font-size: 12px; color: #8B0000; margin: 0;">วิทยาลัยเทคนิคดอกคำใต้ เนื่องในโอกาสวันเฉลิมพระชนมพรรษา 28 กรกฎาคม 2569</p>
     </div>
 
     <div class="content">
@@ -39,12 +140,12 @@
 
         <form id="wishesForm">
             <div class="input-group">
-                <label><i class="bi bi-person-fill" style="color: #0ea5e9;"></i> ชื่อ - นามสกุล</label>
+                <label><i class="bi bi-person-fill" style="color: #8B0000;"></i> ชื่อ - นามสกุล</label>
                 <input type="text" name="fullName" required placeholder="เช่น นายสมชาย เรียนดี">
             </div>
 
             <div class="input-group">
-                <label><i class="bi bi-briefcase-fill" style="color: #0ea5e9;"></i> ตำแหน่ง / แผนกวิชา</label>
+                <label><i class="bi bi-briefcase-fill" style="color: #8B0000;"></i> ตำแหน่ง / แผนกวิชา</label>
                 <select name="position" required>
                     <option disabled selected value="">-- กรุณาเลือกตำแหน่ง --</option>
                     <optgroup label="บุคลากร">
@@ -65,7 +166,7 @@
             </div>
 
             <div class="input-group">
-                <label><i class="bi bi-chat-heart-fill" style="color: #0ea5e9;"></i> คำถวายพระพร</label>
+                <label><i class="bi bi-chat-heart-fill" style="color: #8B0000;"></i> คำถวายพระพร</label>
                 <select name="wishText" required>
                     <option disabled selected value="">-- เลือกคำถวายพระพร --</option>
                     <option value="ขอพระองค์ทรงพระเจริญยิ่งยืนนาน">1. ขอพระองค์ทรงพระเจริญยิ่งยืนนาน</option>
@@ -82,7 +183,7 @@
         <hr style="margin: 20px 0; border: none; border-top: 1px solid #cbd5e1;">
 
         <div>
-            <h4 style="font-size: 14px; font-weight: bold; color: #1e293b; margin-bottom: 10px;"><i class="bi bi-journal-text" style="color: #0ea5e9;"></i> รายชื่อผู้ลงนามถวายพระพรล่าสุด</h4>
+            <h4 style="font-size: 14px; font-weight: bold; color: #1e293b; margin-bottom: 10px;"><i class="bi bi-journal-text" style="color: #8B0000;"></i> รายชื่อผู้ลงนามถวายพระพรล่าสุด</h4>
             <div class="list-box" id="listContainer">
                 <div style="text-align: center; color: #64748b; padding: 20px; font-size: 13px;">กำลังโหลดข้อมูล...</div>
             </div>

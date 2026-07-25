@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ลงนามถวายพระพร</title>
+    <title>ระบบลงนามถวายพระพร</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body { font-family: 'Kanit', sans-serif; background: transparent; margin: 0; padding: 10px; box-sizing: border-box; }
-        .card { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid rgba(255,255,255,0.6); }
+        body { font-family: 'Kanit', sans-serif; background: #f3f4f6; margin: 0; padding: 15px; box-sizing: border-box; }
+        .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); overflow: hidden; border: 1px solid #e5e7eb; }
         .header { background: linear-gradient(to right, #0ea5e9, #2563eb); padding: 20px; text-align: center; color: white; position: relative; }
         .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background-color: #fde047; }
         .content { padding: 20px; }
@@ -19,7 +19,7 @@
         input:focus, select:focus { outline: none; border-color: #38bdf8; box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4); }
         .btn { width: 100%; background: linear-gradient(to right, #0ea5e9, #2563eb); color: white; border-radius: 12px; padding: 12px; font-weight: 600; font-size: 15px; border: none; cursor: pointer; box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Kanit', sans-serif; }
         .btn:hover { opacity: 0.95; }
-        .list-box { background: rgba(255,255,255,0.7); border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .list-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 12px; max-height: 300px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
         .item { background: white; border-radius: 8px; padding: 10px; font-size: 13px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
         @keyframes spin { to { transform: rotate(360deg); } }
     </style>
@@ -37,7 +37,7 @@
             <img src="https://dkttc.ac.th/wp-content/uploads/2026/07/ร-10-1.png" alt="ทรงพระเจริญ" style="width: 100%; height: auto; display: block;" />
         </div>
 
-        <form id="wishesForm" method="POST">
+        <form id="wishesForm">
             <div class="input-group">
                 <label><i class="bi bi-person-fill" style="color: #0ea5e9;"></i> ชื่อ - นามสกุล</label>
                 <input type="text" name="fullName" required placeholder="เช่น นายสมชาย เรียนดี">
@@ -54,12 +54,12 @@
                         <option value="บุคลากรทางการศึกษาอื่นๆ">บุคลากรทางการศึกษาอื่นๆ</option>
                     </optgroup>
                     <optgroup label="นักเรียน">
-                        <option value="การบัญชี">นักเรียนสาขาวิชาการบัญชี</option>
-                        <option value="ช่างกลโรงงาน">นักเรียนสาขาวิชาช่างกลโรงงาน</option>
-                        <option value="ช่างเทคนิคคอมพิวเตอร์">นักเรียนสาขาวิชาช่างเทคนิคคอมพิวเตอร์</option>
-                        <option value="ช่างไฟฟ้า">นักเรียนสาขาวิชาช่างไฟฟ้า</option>
-                        <option value="ช่างยนต์">นักเรียนสาขาวิชาช่างยนต์</option>
-                        <option value="อิเล็กทรอนิกส์">นักเรียนสาขาวิชาอิเล็กทรอนิกส์</option>
+                        <option value="นักเรียนสาขาวิชาการบัญชี">นักเรียนสาขาวิชาการบัญชี</option>
+                        <option value="นักเรียนสาขาวิชาช่างกลโรงงาน">นักเรียนสาขาวิชาช่างกลโรงงาน</option>
+                        <option value="นักเรียนสาขาวิชาช่างเทคนิคคอมพิวเตอร์">นักเรียนสาขาวิชาช่างเทคนิคคอมพิวเตอร์</option>
+                        <option value="นักเรียนสาขาวิชาช่างไฟฟ้า">นักเรียนสาขาวิชาช่างไฟฟ้า</option>
+                        <option value="นักเรียนสาขาวิชาช่างยนต์">นักเรียนสาขาวิชาช่างยนต์</option>
+                        <option value="นักเรียนสาขาวิชาอิเล็กทรอนิกส์">นักเรียนสาขาวิชาอิเล็กทรอนิกส์</option>
                     </optgroup>
                 </select>
             </div>
@@ -91,31 +91,92 @@
 </div>
 
 <script>
-    google.script.run.withSuccessHandler(function(data) {
-        const container = document.getElementById('listContainer');
-        if(data && data.length > 0) {
-            let html = '';
-            data.reverse().forEach(item => {
-                html += `
-                    <div class="item">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
-                            <strong style="color: #0369a1;"><i class="bi bi-person-circle" style="color: #0ea5e9;"></i> ${item.fullName || '-'} <span style="color: #64748b; font-weight: normal; font-size: 11px;">(${item.position || '-'})</span></strong>
-                            <span style="color: #94a3b8; font-size: 10px;">${item.timestamp || ''}</span>
-                        </div>
-                        <p style="color: #334155; font-style: italic; margin: 0; padding-left: 6px; border-left: 2px solid #38bdf8; font-size: 12px;">"${item.wishText || '-'}"</p>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        } else {
-            container.innerHTML = '<div style="text-align: center; color: #64748b; padding: 20px; font-size: 13px;">ยังไม่มีรายชื่อผู้ลงนาม เป็นคนแรกที่ร่วมลงนามเลย!</div>';
-        }
-    }).getWishes();
+    // ⚠️ เปลี่ยนลิงก์ด้านล่างนี้ เป็น Web App URL ของคุณที่ได้จากการ Deploy ใน Google Apps Script
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRnohcSudaxbXkOBi26v8V61q2Uw3fJdpWu7dC9D54fLa3p0wgkqUHPE8frX7Jt30YFQ/exec";
 
-    document.getElementById('wishesForm').addEventListener('submit', function() {
+    window.addEventListener('DOMContentLoaded', function() {
+        loadWishes();
+    });
+
+    function loadWishes() {
+        fetch(SCRIPT_URL + "?action=get")
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('listContainer');
+                if(data && data.length > 0) {
+                    let html = '';
+                    data.reverse().forEach(item => {
+                        html += `
+                            <div class="item">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px;">
+                                    <strong style="color: #0369a1;"><i class="bi bi-person-circle" style="color: #0ea5e9;"></i> ${item.fullName || '-'} <span style="color: #64748b; font-weight: normal; font-size: 11px;">(${item.position || '-'})</span></strong>
+                                    <span style="color: #94a3b8; font-size: 10px;">${item.timestamp || ''}</span>
+                                </div>
+                                <p style="color: #334155; font-style: italic; margin: 0; padding-left: 6px; border-left: 2px solid #38bdf8; font-size: 12px;">"${item.wishText || '-'}"</p>
+                            </div>
+                        `;
+                    });
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = '<div style="text-align: center; color: #64748b; padding: 20px; font-size: 13px;">ยังไม่มีรายชื่อผู้ลงนาม เป็นคนแรกที่ร่วมลงนามเลย!</div>';
+                }
+            })
+            .catch(err => {
+                console.error("Load error: ", err);
+            });
+    }
+
+    document.getElementById('wishesForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
         const btn = document.getElementById('submitBtn');
         btn.disabled = true;
         btn.innerHTML = `<span style="display:inline-block; width:12px; height:12px; border:2px solid white; border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-right:5px;"></span> กำลังบันทึกข้อมูล...`;
+
+        const formData = {
+            fullName: document.querySelector('[name="fullName"]').value,
+            position: document.querySelector('[name="position"]').value,
+            wishText: document.querySelector('[name="wishText"]').value
+        };
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(res => {
+            if(res.status === "success") {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'ลงนามถวายพระพรสำเร็จ',
+                    text: 'บันทึกข้อมูลเรียบร้อยแล้ว ขอบคุณครับ',
+                    confirmButtonColor: '#0ea5e9',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+                document.getElementById('wishesForm').reset();
+                loadWishes();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'เกิดข้อผิดพลาด',
+                    text: res.message || 'กรุณาลองใหม่อีกครั้ง',
+                    confirmButtonColor: '#ef4444'
+                });
+            }
+            btn.disabled = false;
+            btn.innerHTML = `<i class="bi bi-send-fill"></i> ลงนามถวายพระพร`;
+        })
+        .catch(err => {
+            Swal.fire({
+                icon: 'error',
+                title: 'เกิดข้อผิดพลาด',
+                text: 'ไม่สามารถเชื่อมต่อกับระบบได้',
+                confirmButtonColor: '#ef4444'
+            });
+            btn.disabled = false;
+            btn.innerHTML = `<i class="bi bi-send-fill"></i> ลงนามถวายพระพร`;
+        });
     });
 </script>
 </body>
